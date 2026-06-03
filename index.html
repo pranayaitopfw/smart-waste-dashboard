@@ -3,99 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Smart Waste Monitoring System</title>
-
 <link rel="stylesheet" href="style.css">
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script type="module" src="firebase-config.js"></script>
-<script type="module" src="script.js"></script>
-
 </head>
-
 <body>
 
-<div class="container">
+<div class="bg-animation">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
 
+<div class="container">
 <header>
 <h1>Smart Waste Monitoring System</h1>
-<p>Real-Time IoT Waste Analytics Dashboard</p>
+<p>ESP32 + Ultrasonic + MQ135 Dashboard</p>
 </header>
 
-<div class="cards">
+<section class="cards">
+<div class="card"><h3>Trash Level</h3><div id="trashPercent">72%</div></div>
+<div class="card"><h3>Air Quality</h3><div id="airStatus">GOOD</div></div>
+<div class="card"><h3>Bin Status</h3><div id="binStatus">Medium</div></div>
+<div class="card"><h3>Last Update</h3><div id="lastUpdate">Live</div></div>
+</section>
 
-<div class="card">
-<h3>Trash Level</h3>
-<div id="trashPercent">0%</div>
-</div>
-
-<div class="card">
-<h3>Air Quality</h3>
-<div id="airStatus">GOOD</div>
-</div>
-
-<div class="card">
-<h3>Bin Status</h3>
-<div id="binStatus">Empty</div>
-</div>
-
-<div class="card">
-<h3>Last Update</h3>
-<div id="lastUpdate">--</div>
-</div>
-
-</div>
-
-<div class="progress-section">
-
+<section class="progress-section">
 <h2>Trash Fill Level</h2>
-
 <div class="progress-ring">
 <svg width="220" height="220">
-<circle
-cx="110"
-cy="110"
-r="90"
-class="bg">
-</circle>
-
-<circle
-cx="110"
-cy="110"
-r="90"
-class="progress"
-id="progressCircle">
-</circle>
-
+<circle cx="110" cy="110" r="90" class="bg"></circle>
+<circle cx="110" cy="110" r="90" class="progress"></circle>
 </svg>
+<div class="progress-text">72%</div>
+</div>
+</section>
 
-<div class="progress-text" id="ringText">
-0%
+<div class="alert-card">⚠ No Active Alerts</div>
+
+<section class="charts">
+<div class="chart-card"><canvas id="trashChart"></canvas></div>
+<div class="chart-card"><canvas id="airChart"></canvas></div>
+</section>
 </div>
 
-</div>
-
-</div>
-
-<div class="alert-card" id="alertBox">
-No Active Alerts
-</div>
-
-<div class="charts">
-
-<div class="chart-card">
-<canvas id="trashChart"></canvas>
-</div>
-
-<div class="chart-card">
-<canvas id="airChart"></canvas>
-</div>
-
-</div>
-
-</div>
-
+<script src="script.js"></script>
 </body>
 </html>
