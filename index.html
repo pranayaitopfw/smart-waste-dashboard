@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Waste Monitoring System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="script.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>Smart Waste Monitoring System</h1>
+<p>Real-Time IoT Waste Analytics Dashboard</p>
+</header>
+
+<div class="cards">
+
+<div class="card">
+<h3>Trash Level</h3>
+<div id="trashPercent">0%</div>
+</div>
+
+<div class="card">
+<h3>Air Quality</h3>
+<div id="airStatus">GOOD</div>
+</div>
+
+<div class="card">
+<h3>Bin Status</h3>
+<div id="binStatus">Empty</div>
+</div>
+
+<div class="card">
+<h3>Last Update</h3>
+<div id="lastUpdate">--</div>
+</div>
+
+</div>
+
+<div class="progress-section">
+
+<h2>Trash Fill Level</h2>
+
+<div class="progress-ring">
+<svg width="220" height="220">
+<circle
+cx="110"
+cy="110"
+r="90"
+class="bg">
+</circle>
+
+<circle
+cx="110"
+cy="110"
+r="90"
+class="progress"
+id="progressCircle">
+</circle>
+
+</svg>
+
+<div class="progress-text" id="ringText">
+0%
+</div>
+
+</div>
+
+</div>
+
+<div class="alert-card" id="alertBox">
+No Active Alerts
+</div>
+
+<div class="charts">
+
+<div class="chart-card">
+<canvas id="trashChart"></canvas>
+</div>
+
+<div class="chart-card">
+<canvas id="airChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
